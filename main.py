@@ -1,5 +1,2 @@
 # This is a sample Python script.
-
-print(23)
-print('eeeee')
-print('ff')
+print('Hello world')
