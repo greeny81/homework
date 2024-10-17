@@ -13,7 +13,7 @@ print(phone_book)
 #print(phone_book.get('Denis'))
 #print(phone_book['Kam']) #Ошибка если нет ключа
 #print(phone_book.get('Kam','ret')) #Нет ошибки если нет ключа
-#========POP
+#Удаление с присвоением значения
 a = phone_book.pop('Max')
 print(phone_book)
 list_ = [1,2,3,4]
@@ -31,14 +31,14 @@ print(phone_book)
 # - нет возможности обратиться по индексу list[0]
 set_ = {1,2,3,4,5,1,2,3,4, 'String', True,(1,2,3)}
 print(set_)
-#вывод множества изи списка
+#вывод множества из списка
 list_ = [1,1,1,1,2,2,3,333,3,2,2]
 print(set(list_))
 #замена списка на множество
 list_ = set(list_)
 print(list_)
 #Удаление элементов
-list_.remove(2) #Ошибка если нет элемента
+list_.remove(2)  #Ошибка если нет элемента
 list_.discard(7) #Нет ошибки если нет элемента
 print(list_)
 list_.add(888)
