@@ -1,9 +1,9 @@
 #Создайте переменную my_dict и присвойте ей словарь из нескольких пар ключ-значение.
 my_dict = {'Sergey': 1991, 'Evgeniy': 1994, 'Artem': 1998, 'Max': 1986}
-print('Словарь:\n',my_dict)
+print('Dict:',my_dict)
 #Выведите на экран одно значение по существующему ключу, одно по отсутствующему из словаря my_dict без ошибки.
-print(my_dict['Evgeniy'])
-print(my_dict.get('SVETLANA', 'Нет ключа и нет ошибки'))
+print('Existing value:',my_dict['Evgeniy'])
+print('Not existing value:',my_dict.get('SVETLANA'))
 #Добавьте ещё две произвольные пары того же формата в словарь my_dict.
 my_dict.update({'Yura' : 1999, 'Kate' : 1991})
 print(my_dict)
