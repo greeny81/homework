@@ -1,3 +1,5 @@
+f="wertyu"
+print(f[6])
 name = 'Andrey'
 print('Name: '+ name)
 
