@@ -1,7 +1,7 @@
 name = 'Andrey'
 print('Name: '+ name)
 
-age = 18
+age = 19
 print('Age: ' + str(age))
 age = age + 2
 print('New Age: ' + str(age))
