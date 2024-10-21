@@ -1,18 +1,12 @@
-# name = input("input name: ")
-# if name == "gg":
-#     print("Hi admin")
-# if name == "ff":
-#         print("hi prepod")
-# else:
-#     print("Hi ", name)
+# import this
+#
 
-#or - and
-number = int(input("Input numb: "))
-if number % 3 == 0 and number % 5 == 0:
-    print("FizzBazz")
-elif number % 3 == 0:
-    print("Fizz")
-elif number % 5 == 0:
-    print("Buzz")
-else:
-    print("no match")
+while True:
+    number = int(input("Input numb: "))
+    if number == 0:
+        break
+    if number % 2  == 0:
+        print("num:",number,"четное")
+    else:
+        print("num:", number,"нечетное")
+print("End")
