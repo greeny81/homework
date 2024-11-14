@@ -1,5 +1,7 @@
 # import this
 #
+matrix = []
+matrix.append([])
 
 while True:
     number = int(input("Input numb: "))
