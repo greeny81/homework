@@ -1,7 +1,6 @@
-from xml.sax.handler import property_interning_dict
-
 
 def send_email(message, recipient, *, sender = "university.help@gmail.com"):
+    domains = ['com','ru','net']
     if recipient.find("@") == -1 or sender.find("@") == -1 :
         print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}.')
 
