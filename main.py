@@ -7,6 +7,16 @@
 #
 # print(list)
 # print (sum_)
+
+
+sender = "university.help@gmail.com"
+rec = "urban.teacher@mail.uk"
+suff = (".com",".ru",".net")
+
+print(sender.endswith(suff))
+print(rec.endswith(suff))
+
+exit()
 for i in range(1,11):
     for j in range(1,11):
         print(f' {i} x {j} = {i * j}')

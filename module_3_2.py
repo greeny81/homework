@@ -1,11 +1,12 @@
 
 def send_email(message, recipient, *, sender = "university.help@gmail.com"):
-    domains = ['com','ru','net']
-    if recipient.find("@") == -1 or sender.find("@") == -1 :
+    suff = (".com", ".ru", ".net")
+    if recipient.find("@") == -1 or sender.find("@") == -1 or sender.endswith(suff) == False or recipient.endswith(suff) == False:
         print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}.')
-
+        return
     if recipient == sender:
         print('Нельзя отправить письмо самому себе!')
+        return
     if sender == "university.help@gmail.com":
         print(f'Письмо успешно отправлено с адреса {sender} на адрес {recipient}.')
     else:
