@@ -1,4 +1,7 @@
 class Human:
+
+    head = True #АТРИБУТ КЛАССА!!!
+
     def __init__(self, name, age):
         self.name = name
         self.age =  age
@@ -38,13 +41,14 @@ ser = Human('Den', 21)
 den.surname = "Иванов"
 #den.say_info()
 #del den
-max.birthday()
-print(len(den))
+#max.birthday()
+#print(len(den))
+print(Human.head)
 #input()
 #print(den.name, den.surname, den.age)
 #print(max.name, max.age)
-print(den < max)
-print(den > max)
-print(max == den) #False
-print(den == ser) #True
-print(max)
+# print(den < max)
+# print(den > max)
+# print(max == den) #False
+# print(den == ser) #True
+# print(max)
