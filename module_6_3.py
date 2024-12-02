@@ -9,13 +9,22 @@ class Animal:
         self.speed = speed
 
     def move(self, dx, dy, dz):
-        new_coord = [item * self.speed for item in self._cords]
+        nc = [dx, dy, dz]
+        new_coord = [item * self.speed for item in nc]
         if new_coord[2] < 0:
             print("t's too deep, i can't dive :(")
         else:
             self._cords = new_coord
+            print(f'X: {self._cords[0]} Y: {self._cords[1]} Z: {self._cords[2]}')
+
     def speak(self,snd):
         print(snd)
+
+    def attack(self):
+        if self._DEGREE_OF_DANGER < 5:
+            print("Be careful, i'm attacking you 0_0")
+        else:
+            print("Sorry, i'm peaceful :)")
 
 
 class Bird(Animal):
@@ -26,8 +35,6 @@ class Bird(Animal):
     def lay_eggs(self):
         print(f'Here are(is) {random.randint(1, 4)} eggs for you')
 
-    #def speak(snd):
-     #   super().speak(snd)
 
 class Duckbill(Bird):
 
@@ -50,7 +57,14 @@ db = Duckbill(10)
 
 print(db.live)
 print(db.beak)
-print(db.speed)
+#print(db.speed)
 db.speak()
+db.attack()
+
+db.move(1, 2, 3)
+
 db.lay_eggs()
+
+
+
 print(Duckbill.mro())
