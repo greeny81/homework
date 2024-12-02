@@ -15,7 +15,9 @@ class Animal:
             print("t's too deep, i can't dive :(")
         else:
             self._cords = new_coord
-            print(f'X: {self._cords[0]} Y: {self._cords[1]} Z: {self._cords[2]}')
+
+    def get_cords(self):
+        print(f'X: {self._cords[0]} Y: {self._cords[1]} Z: {self._cords[2]}')
 
     def speak(self,snd):
         print(snd)
@@ -35,8 +37,17 @@ class Bird(Animal):
     def lay_eggs(self):
         print(f'Here are(is) {random.randint(1, 4)} eggs for you')
 
+class AquaticAnimal(Animal):
+    _DEGREE_OF_DANGER = 3
+    def dive_in(self, dz):
+        new_z = self._cords[2] - self.speed % 2  * abs(dz)
+        self._cords[2] -= new_z
+        #print(f'NZ {new_z}')
 
-class Duckbill(Bird):
+class PoisonousAnimal(Animal):
+    _DEGREE_OF_DANGER = 8
+
+class Duckbill(Bird, AquaticAnimal, PoisonousAnimal):
 
     def __init__(self, speed):
         self.sound = 'Click-click-click'
@@ -45,26 +56,16 @@ class Duckbill(Bird):
     def speak(self):
         super().speak(self.sound)
         
-
-class AquaticAnimal(Animal):
-    _DEGREE_OF_DANGER = 3
-    def dive_in(self, dz):
-        pass
-class PoisonousAnimal(Animal):
-    _DEGREE_OF_DANGER = 8
-
 db = Duckbill(10)
-
 print(db.live)
 print(db.beak)
-#print(db.speed)
+
 db.speak()
 db.attack()
 
 db.move(1, 2, 3)
-
+db.get_cords()
+db.dive_in(6)
+db.get_cords()
 db.lay_eggs()
-
-
-
-print(Duckbill.mro())
+#print(Duckbill.mro())
