@@ -5,6 +5,7 @@ class Product:
         self.name = name
         self.weight = weight
         self.category = cat
+
     def __str__(self):
         return f'{self.name}, {self.weight}, {self.category}'
 
@@ -14,19 +15,32 @@ class Shop:
 
     def get_products(self):
         file = open(self.__file_name, 'r')
-        ret = file.read()
+        in_file = file.read()
         file.close()
-        return ret
+        return in_file
 
     def add(self, *products):
-        prod_in = self.get_products()
-        print('gggg',prod_in)
-        for number in products:
-            print(number)
+        prod_in_mag = self.get_products()
+        # print(type(products[1]))
+        # print(len(products))
+        # print(products[1].name)
+        # print(products[1])
+        for i in range(len(products)):
+            #print(prod_in_mag)
+            new_prod = products[i].name
+
+            if new_prod in prod_in_mag:
+                print(f'Продукт {new_prod} уже есть в магазине')
+            else:
+                file = open(self.__file_name, 'a')
+                file.write(f'{products[i]}\n')
+                file.close()
 
 s1 = Shop()
 p1 = Product('Potato', 50.5, 'Vegetables')
 p2 = Product('Spaghetti', 3.4, 'Groceries')
 p3 = Product('Potato', 5.5, 'Vegetables')
 
-s1.add(p1)
+print(p2)
+s1.add(p1,p2,p3)
+print(s1.get_products())
