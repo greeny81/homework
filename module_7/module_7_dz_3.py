@@ -47,11 +47,6 @@ class WordsFinder:
                 cnt[key] = count
         return cnt
 
-
-
-# num = ' '.join(value).find(w)
-#             w_pos[key] = num
-
 finder2 = WordsFinder('test_file.txt')
 print(finder2.get_all_words())
 print(finder2.find('TEXT'))
