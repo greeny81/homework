@@ -23,18 +23,28 @@ f_name = 'sample2.txt'
 # pprint(file.read())#Прочитает остаток 15+
 # print(file.tell())# 29
 # file.close()
-
-file = open(f_name, 'r', encoding='utf-8')
-print(file.writable()) #Проверка файла на возможность записи , чтения , поиска
-print(file.readable()) #Проверка файла на возможность записи , чтения , поиска
-print(file.seekable()) #Проверка файла на возможность записи , чтения , поиска
-print(file.buffer) #Просмотр различных параметров print(file. ..........)
-print(file.tell())
-pprint(file.read())
-print(file.tell())
+#=================lesson 2
+# file = open(f_name, 'r', encoding='utf-8')
+# print(file.writable()) #Проверка файла на возможность записи , чтения , поиска
+# print(file.readable()) #Проверка файла на возможность записи , чтения , поиска
+# print(file.seekable()) #Проверка файла на возможность записи , чтения , поиска
+# print(file.buffer) #Просмотр различных параметров print(file. ..........)
+# print(file.tell())
+# pprint(file.read())
+# print(file.tell())
 # file.seek(15)
 # file.write('new text')
 # print(file.tell())
+#=========================lesson 3 'WITH'
+name = 'sample2.txt'
+#with EXPR as TARG: схема
+#     ACTION
+with open(name, encoding='UTF-8') as file:
+    for line in file:
+        #print(line, end='')
+        for char in line:
+            print(char, end='')# c end='' выведет как и line , без - побуквенно
+    print(file.tell())
+    #с WITH файл автоматом закрывается
 
 
-file.close()
