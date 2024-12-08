@@ -1,8 +1,6 @@
 import string
 import re
 
-
-
 class WordsFinder:
     file_names = []
     def __init__(self, *args):
