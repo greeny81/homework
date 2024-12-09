@@ -36,15 +36,15 @@ f_name = 'sample2.txt'
 # file.write('new text')
 # print(file.tell())
 #=========================lesson 3 'WITH'
-name = 'sample2.txt'
-#with EXPR as TARG: схема
-#     ACTION
-with open(name, encoding='UTF-8') as file:
-    for line in file:
-        #print(line, end='')
-        for char in line:
-            print(char, end='')# c end='' выведет как и line , без - побуквенно
-    print(file.tell())
+# name = 'sample2.txt'
+# #with EXPR as TARG: схема
+# #     ACTION
+# with open(name, encoding='UTF-8') as file:
+#     for line in file:
+#         #print(line, end='')
+#         for char in line:
+#             print(char, end='')# c end='' выведет как и line , без - побуквенно
+#     print(file.tell())
     #с WITH файл автоматом закрывается
 
 

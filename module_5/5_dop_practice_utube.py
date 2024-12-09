@@ -1,4 +1,3 @@
-from symbol import continue_stmt
 from time import sleep
 
 class User:
@@ -10,7 +9,7 @@ class User:
 
 class Video:
 
-    def __init__(self, title, duration, time_now, adult_mode = False ):
+    def __init__(self, title, duration, time_now = 0, adult_mode = False ):
             self.title = title
             self.duration = duration
             self.time_now = time_now
@@ -18,8 +17,8 @@ class Video:
 
 class UrTube:
     def __init__(self):
-        self.users = {}
-        self.videos = {}
+        self.users = []
+        self.videos = []
         self.current_user = ''
 
     def log_in(self,nickname, password ):
@@ -33,6 +32,18 @@ class UrTube:
                 print("\nInput wrong password!")
         else:
             print("User not found.")
+
+    def register(self,nickname, password, age):
+        for name in self.users:
+            if name == nickname:
+                print(f'Пользователь {nickname} уже существует"')
+            else:
+                self.users.append(nickname)
+    def logout(self):
+        self.current_user = None
+
+    def add(self, *args):
+        pass
 
 ur = UrTube()
 v1 = Video('Лучший язык программирования 2024 года', 200)

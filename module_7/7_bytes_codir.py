@@ -6,7 +6,7 @@ chars = []
 for i in f:
     chars.append(ord(i))#[104, 101, 108, 108, 111]
 s = ''
-#print(chars)
+print(chars)
 
 for i in chars:
     s += chr(i)#[104, 101, 108, 108, 111]  ==>> hello
