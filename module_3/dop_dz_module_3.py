@@ -19,7 +19,12 @@ def calculate_structure_sum(obj_):
     if len(obj_):
 
         if isinstance(obj_[i], list) :
-            print(f'Input List block {str(obj_[i])}')
+            print(f'Input List block {str(obj_[i])} ==> obj[i][0]:{type(obj_[i][0])}')
+            if isinstance(obj_[i], list) and isinstance(obj_[i][0], set) :
+                print(f'Input DICT in LIST: {obj_[i][0]}')
+                obj_[i] = obj_[i][0][0]
+                #calculate_structure_sum(obj_)
+
             summ += sum(obj_[i])
             del(obj_[i])
             print(f'Summ list: {summ}')
@@ -43,35 +48,41 @@ def calculate_structure_sum(obj_):
             summ += len(obj_[i])
             print(f'\nstr:{summ}')
             del(obj_[i])
-            print(f'Out STR {str(obj_)}')
+            print(f'After STR obj_:{str(obj_)}')
             calculate_structure_sum(obj_)
 
         if isinstance(obj_[i], tuple):
             tmpLIst = list(obj_[i])
-            print(f'Input Tuple block: {tmpLIst}')
+            print(f'Input Tuple block: {tmpLIst} Len:{len(tmpLIst)}')
             j = 0
             while j < len(tmpLIst):
-                print(f'Tuple obj_{j}={tmpLIst[j]} | <--- {tmpLIst} {type(tmpLIst[j])} {len(tmpLIst[j])} |')
+                print(f'Tuple obj_[{j}]={tmpLIst[j]} | <--- {tmpLIst} {type(tmpLIst[j])}  |')
+
                 if isinstance(tmpLIst[j], int):
                     summ += tmpLIst[j]
                     del(tmpLIst[j])
+                    #print(f'tmp:{tmpLIst}')
+
                 if isinstance(tmpLIst[j], tuple):
+                    if len(tmpLIst[j]) == 0:
+                        del (tmpLIst[j])
+                        continue
                     for key, val in tmpLIst[j].items():
                         if isinstance(key, str):
                             summ += len(key)
-
-
-
-
-                print('Tuple after DEL:' + str(tmpLIst))
+                        if isinstance(val, int):
+                            summ += val
+                    del(tmpLIst[j][key])
                 j += 1
-                obj_[i] = tuple(tmpLIst)
-                print(f'Summ tuple: {summ}')
+            if len(tmpLIst):
+                obj_[i] = tmpLIst[0]
+            else:
+                del(obj_[i])
 
-            if len(obj_[i]):
-                print('NOW obj_[i]: ' + str(obj_[i]))
-                print('NOW obj_: ' + str(obj_))
-            #else:
+
+            print(f'Summ tuple: {summ}')
+            print('Tuple after DEL:' + str(tmpLIst))
+            if len(obj_):
                 calculate_structure_sum(obj_)
 
         #i += 1

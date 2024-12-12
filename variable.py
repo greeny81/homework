@@ -1,3 +1,7 @@
+c =(()
+
+
+
 ready_count = 12
 time_loss = 1.5
 course_name = 'Python'
