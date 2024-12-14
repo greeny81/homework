@@ -1,5 +1,3 @@
-from selectors import SelectSelector
-
 
 def personal_sum(numbers):
     result = 0
