@@ -21,8 +21,12 @@ def calculate_structure_sum(obj_):
         if isinstance(obj_[i], list) :
             print(f'Input List block {str(obj_[i])} ==> obj[i][0]:{type(obj_[i][0])}')
             if isinstance(obj_[i], list) and isinstance(obj_[i][0], set) :
-                print(f'Input DICT in LIST: {obj_[i][0]}')
-                obj_[i] = obj_[i][0][0]
+                print(f'Input SET in LIST: ')
+                print(f'aa{obj_[i]}')
+                print(f'bb{obj_[i][0]}')
+                print(f'gg{obj_[i][0][0]}')
+                #obj_[i] = obj_[i][0][0]
+                exit(0)
                 #calculate_structure_sum(obj_)
 
             summ += sum(obj_[i])
