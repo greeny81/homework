@@ -1,6 +1,7 @@
 class IncorrectVinNumber(Exception):
     def __init__(self, message):
         self.message = message
+        print(self.message)
 
 class IncorrectCarNumbers(Exception):
     def __init__(self, message):
