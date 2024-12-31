@@ -15,7 +15,7 @@ def write_words(dic, tr):
         #print(f'c:{count} v:{file_name}')
         with open(file_name, 'w', encoding='utf-8') as file:
             for i in range(count):
-                file.write('Какое-то слово № ' + str(i))
+                file.write('Какое-то слово № ' + str(i+1) + '\n')
                 time.sleep(0.1)
             print(f'Завершилась запись в файл {file_name}')
 
