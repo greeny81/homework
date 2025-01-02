@@ -39,31 +39,30 @@ class Cafe:
 
 
     def discuss_guest(self):
-        while self.queue.qsize() > 0:
-            i = 0;
-            print(f'======={self.queue.qsize()}======')
-            for t in tables:# только занятые столы
-                #print(f'table:{t.number} guest: {t.guest}')
-                for g in guests:# все гости
-                    #print(f'cur{g.name}')
-                    if g.name == t.guest:# этот гость за столом
-                        #print(f'check{g.name} live:{g.is_alive()}')
-                        if not g.is_alive():# thread гостя умер
-                            #print(t.guest,t.number,g.name,g.is_alive())
-                            print(f'{g.name} покушал(-а) и ушёл(ушла)')
-                            print(f'Стол номер {t.number} свободен')
-                            que_guest = self.queue.get()# Берем гостя из очереди
-                            print(f'{que_guest.name} вышел(-ла) из очереди и сел(-а) за стол номер {t.number}')
-                            que_guest.start()
 
-        print('end',self.queue.qsize())
+
+        while self.queue.qsize() != 0:
+            for t in tables:# только занятые столы
+                for g in guests:# все гости
+                    if g.name == t.guest and not g.is_alive():# этот гость за столом
+                        #print(t.guest,t.number,g.name,g.is_alive())
+                        print(f'{g.name} покушал(-а) и ушёл(ушла)')
+                        print(f'Стол номер {t.number} свободен')
+                        que_guest = self.queue.get()# Берем гостя из очереди
+                        print(f'{que_guest.name} вышел(-ла) из очереди и сел(-а) за стол номер {t.number}')
+                        t.guest = que_guest.name
+                        que_guest.start()
+
+        print('End qSize:',self.queue.qsize())
 
 guests_names = ['Maria', 'Oleg', 'Vakhtang', 'Sergey', 'Darya', 'Arman','Vitoria', 'Nikita', 'Galina', 'Pavel', 'Ilya', 'Alexandra']
 tables = [Table(number) for number in range(1, 6)]
-print(tables)
+
+# Создание гостей
 guests = [Guest(name) for name in guests_names]
-print(guests)
+# Заполнение кафе столами
 cafe = Cafe(*tables)
-print(cafe.__dir__())
+# Приём гостей
 cafe.guest_arrival(*guests)
+# Обслуживание гостей
 cafe.discuss_guest()
