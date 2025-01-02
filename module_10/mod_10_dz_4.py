@@ -39,19 +39,27 @@ class Cafe:
 
 
     def discuss_guest(self):
+        arch = True
 
-
-        while self.queue.qsize() != 0:
-            for t in tables:# только занятые столы
-                for g in guests:# все гости
-                    if g.name == t.guest and not g.is_alive():# этот гость за столом и уже поел
-                        #print(t.guest,t.number,g.name,g.is_alive())
-                        print(f'{g.name} покушал(-а) и ушёл(ушла)')
-                        print(f'Стол номер {t.number} свободен')
-                        que_guest = self.queue.get()# Берем гостя из очереди
-                        print(f'{que_guest.name} вышел(-ла) из очереди и сел(-а) за стол номер {t.number}')
-                        t.guest = que_guest.name
-                        que_guest.start()
+        while arch:
+            for t in tables:
+                arch = False
+                if t.guest:
+                    arch = True
+            if arch:
+                for t in tables:# только занятые столы
+                    for g in guests:# все гости
+                        if g.name == t.guest and not g.is_alive():# этот гость за столом и уже поел
+                            #print(t.guest,t.number,g.name,g.is_alive())
+                            print(f'{g.name} покушал(-а) и ушёл(ушла)')
+                            print(f'Стол номер {t.number} свободен')
+                            t.guest = None
+                            if self.queue.qsize() != 0:
+                                que_guest = self.queue.get()# Берем гостя из очереди
+                                print(f'{que_guest.name} вышел(-ла) из очереди и сел(-а) за стол номер {t.number}')
+                                t.guest = que_guest.name
+                                que_guest.start()
+                                arch = True
 
         print('End qSize:',self.queue.qsize())
 
