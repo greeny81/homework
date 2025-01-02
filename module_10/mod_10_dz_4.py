@@ -40,7 +40,7 @@ class Cafe():
 
 
     def discuss_guest(self):
-        self.queue.__dir__()
+        print(self.queue.empty())
         pass
 guests_names = ['Maria', 'Oleg', 'Vakhtang', 'Sergey', 'Darya', 'Arman','Vitoria', 'Nikita', 'Galina', 'Pavel', 'Ilya', 'Alexandra']
 tables = [Table(number) for number in range(1, 6)]
