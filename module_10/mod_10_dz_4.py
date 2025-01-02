@@ -44,7 +44,7 @@ class Cafe:
         while self.queue.qsize() != 0:
             for t in tables:# только занятые столы
                 for g in guests:# все гости
-                    if g.name == t.guest and not g.is_alive():# этот гость за столом
+                    if g.name == t.guest and not g.is_alive():# этот гость за столом и уже поел
                         #print(t.guest,t.number,g.name,g.is_alive())
                         print(f'{g.name} покушал(-а) и ушёл(ушла)')
                         print(f'Стол номер {t.number} свободен')
