@@ -32,9 +32,10 @@ def f2():
         except ZeroDivisionError as err:
             print(f'Error in f1(): {err} ')
     return  result_f1 / 1
+
 try:
     total = f2()# НЕ будет иметь значения т.к. при делении на 0 сразу прилетим в 'except'
     print(f'Result:{total}')
 except ZeroDivisionError as err:
     print(f'Error: {err} but program not crush')
-
+print('next step')
