@@ -33,9 +33,3 @@ if __name__ == '__main__':
     change_proc.join()
 
 
-try:
-    print('')
-except Exception as err:
-    pass
-finally:
-    print('')
