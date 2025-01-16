@@ -26,6 +26,7 @@ some_obj = SomeClass()
 new_func = some_function
 
 #=====1 Аттрибут класса __name__
+print('1 Аттрибут класса __name__')
 print(some_function.__name__)
 print(SomeClass.__name__)
 print(requests.__name__)
