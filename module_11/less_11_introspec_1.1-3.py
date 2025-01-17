@@ -113,6 +113,6 @@ def facto(n):
 
 sys.setrecursionlimit(1500)
 
-print(facto(1099))
-print(sys.getsizeof(facto))
+# print(facto(1099))
+# print(sys.getsizeof(facto))
 

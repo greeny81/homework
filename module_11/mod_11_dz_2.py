@@ -1,3 +1,5 @@
+import inspect
+
 
 class defClass():
     def __init__(self, num):
@@ -9,7 +11,11 @@ class defClass():
 
 
 def introspection_info(obj):
-    cur_ret = [type(obj), dir(obj), callable(obj)]
+    try:
+        attr = getattr(obj, 'att_1')
+    except:
+        attr = 'no this attr'
+    cur_ret = [type(obj), callable(obj), attr, inspect.isclass(obj), isinstance(obj, defClass), dir(obj)]
     return cur_ret
 
 obj = defClass(345)
