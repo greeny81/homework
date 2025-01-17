@@ -10,12 +10,13 @@ class defClass():
         self.att_1 = value
 
 
-def introspection_info(obj):
+def introspection_info(obj, attrib=''):
     try:
-        attr = getattr(obj, 'att_1')
+        cur_attr = getattr(obj, attrib)
     except:
-        attr = 'no this attr'
-    cur_ret = [type(obj), callable(obj), attr, inspect.isclass(obj), isinstance(obj, defClass), dir(obj)]
+        cur_attr = 'no this attr'
+
+    cur_ret = [type(obj), callable(obj), cur_attr, inspect.isclass(obj), isinstance(obj, defClass), dir(obj)]
     return cur_ret
 
 obj = defClass(345)
@@ -23,5 +24,5 @@ str = 'first time str'
 
 ret = introspection_info(str)
 print(ret)
-ret1 = introspection_info(obj)
+ret1 = introspection_info(obj, attrib='att_1')
 print(ret1)
