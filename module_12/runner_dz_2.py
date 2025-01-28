@@ -55,26 +55,6 @@ class TournamentTest(TestCase):
         print(cls.all_results)
 
     def test_tour(self):
-        t1 = Tournament(90, {self.r1,self.r2, self.r3)
+        t1 = Tournament(90, (self.r1,self.r2, self.r3)
+        t1.start()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            , r2})
-
-
-
-if __name__ == "__main__":
-    unittest.main()
