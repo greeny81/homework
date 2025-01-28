@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-
+from numpy.ma.core import append
 
 
 class Runner:
@@ -46,31 +46,34 @@ class Tournament:
 
 
 class TournamentTest(TestCase):
+
     @classmethod
     def setUpClass(cls):
-        print('TClass')
         cls.all_results = {}
 
     def setUp(self):
-        print('SetUp')
+
         self.r1 = Runner('Усэйн', 10)
         self.r2 = Runner('Андрей', 9)
         self.r3 = Runner('Ник', 3)
 
     @classmethod
     def tearDownClass(cls):
-        print('TClass')
-        print(f'Tear {cls.all_results}')
+        print(f'In tearDownClass {cls.all_results}')
 
-
-    def test_tour(self):
+    def test_t1(self):
         t1 = Tournament(90, self.r1, self.r3)
-        t2 = Tournament(90, self.r2, self.r3)
-        t3 = Tournament(90, self.r1, self.r2, self.r3)
-
         print(t1.start())
+
+    def test_t2(self):
+        t2 = Tournament(90, self.r2, self.r3)
         print(t2.start())
-        print(t3.start())
+
+    def test_t3(self):
+        t3 = Tournament(90, self.r1, self.r2, self.r3)
+        res = t3.start()
+        print(res)
+        append(TournamentTest.all_results, res)
 
 
 
