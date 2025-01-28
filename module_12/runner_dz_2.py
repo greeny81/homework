@@ -1,5 +1,8 @@
 from unittest import TestCase
 
+
+
+
 class Runner:
     def __init__(self, name, speed=5):
         self.name = name
@@ -32,29 +35,43 @@ class Tournament:
         while self.participants:
             for participant in self.participants:
                 participant.run()
+                #print(f'{participant} = {participant.distance} - {self.full_distance}')
                 if participant.distance >= self.full_distance:
-                    finishers[place] = participant
+                    finishers[place] = participant.name
                     place += 1
                     self.participants.remove(participant)
+                    #print(finishers)
 
         return finishers
 
 
 class TournamentTest(TestCase):
-
     @classmethod
     def setUpClass(cls):
-        cls.all_results = []
+        print('TClass')
+        cls.all_results = {}
 
     def setUp(self):
+        print('SetUp')
         self.r1 = Runner('Усэйн', 10)
         self.r2 = Runner('Андрей', 9)
-        self.r3 = Runner('Ник', 9)
+        self.r3 = Runner('Ник', 3)
 
+    @classmethod
     def tearDownClass(cls):
-        print(cls.all_results)
+        print('TClass')
+        print(f'Tear {cls.all_results}')
+
 
     def test_tour(self):
-        t1 = Tournament(90, (self.r1,self.r2, self.r3)
-        t1.start()
+        t1 = Tournament(90, self.r1, self.r3)
+        t2 = Tournament(90, self.r2, self.r3)
+        t3 = Tournament(90, self.r1, self.r2, self.r3)
+
+        print(t1.start())
+        print(t2.start())
+        print(t3.start())
+
+
+
 
