@@ -15,6 +15,7 @@ class Runner:
         return self.name
 
 
+
 class RunnerTest(TestCase):
     def test_walk(self):
         self.assertEqual(begun.distance, 50)
